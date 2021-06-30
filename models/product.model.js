@@ -6,7 +6,7 @@ table_ChiTietKho = "ChiTietKho"
 module.exports = {
     //lay toan bo danh sach san pham
     getAllProduct() {
-        const sql = `select sp.MaSanPham  ID, sp.TenSP name, lsp.TenLoaiSP  category, sp.AnhThumbnail thumbnail, sp.AnhDaiDien image, ctk.SoLuong amount, ctk.TrangThai status, sp.GiaBan price, sp.MoTa des
+        const sql = `select sp.MaSanPham  id, sp.TenSP name, lsp.TenLoaiSP  category, sp.AnhThumbnail thumbnail, sp.AnhDaiDien image, ctk.SoLuong amount, ctk.TrangThai status, sp.GiaBan price, sp.MoTa des
         from ${table_SanPham} sp join ${table_LoaiSanPham} lsp on sp.MaLoaiSP = lsp.MaLoaiSP 
         join ${table_ChiTietKho} ctk on sp.MaSanPham = ctk.MaSP  
         where ctk.MaKho = '1'`;

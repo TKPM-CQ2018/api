@@ -31,7 +31,10 @@ create table NhanVien(
     TrangThai int,
     GioiTinh int not null,
     TenDangNhap varchar(50) unique,
-    MatKhau varchar(50)
+    MatKhau varchar(50),
+    MaBoPhan VARCHAR(10),
+    DiaChi NVARCHAR(500),
+    SDT varchar(10)
 );
 
 create table LoaiNhanVien(
@@ -100,6 +103,7 @@ create table SanPham(
     NgayNhapHang DATE not null,
     VAT real not null check (VAT > 0),
     AnhDaiDien nvarchar(100),
+    AnhThumbnail nvarchar(100),
     MoTa nvarchar(1000)
     
 );
@@ -317,7 +321,7 @@ VALUES ('3','Nhân viên lễ tân ', 'Là người hỗ trợ khách hàng gi�
 INSERT INTO LoaiNhanVien
 VALUES ('4','Nhân viên bán hàng ', 'Là người tư vấn, hỗ trợ, thanh toán  ');
 INSERT INTO LoaiNhanVien
-VALUES ('5','Nhân viên quản lý', 'Là người quản lý một chi nhánh trong chuỗi cửa hàng ');
+VALUES ('5','Nhân viên quản lý  ', 'Là người quản lý một chi nhánh trong chuỗi cửa hàng ');
 
 INSERT INTO BoPhan 
 VALUES ('1','Chủ cửa hàng', 'Chủ của cừa hàng',  '2021-06-27');
@@ -330,29 +334,29 @@ VALUES ('4','Kế toán và Kho', 'Bao gồm nhân viên kế toán',  '2021-06-
 
 
 INSERT INTO NhanVien 
-VALUES ('1','Lý Quang Huy','1',null,null,  '2021-06-27', 1, 1, 'nhanvien1', 'password' );
+VALUES ('1','Lý Quang Huy','1',null,null,  '2021-06-27', 1, 1, 'nhanvien1', 'password', '1', 'Tiền Giang', '0976942126' );
 INSERT INTO NhanVien 
-VALUES ('2','Nguyễn Xuân Trung','2',null,null,  '2021-06-27', 1, 1,'nhanvien2', 'password'  );
+VALUES ('2','Nguyễn Xuân Trung','2',10000000,null,  '2021-06-27', 1, 1,'nhanvien2', 'password','4','Cần Thơ', '0273362724'  );
 INSERT INTO NhanVien 
-VALUES ('3','Ngô Tuyết Nhung','3',null,null,  '2021-06-27', 1, 0 ,'nhanvien3', 'password' );
+VALUES ('3','Ngô Tuyết Nhung','3',10000000,null,  '2021-06-27', 1, 0 ,'nhanvien3', 'password','3','Đồng Tháp', '0366048453' );
 INSERT INTO NhanVien 
-VALUES ('4','Đặng Phi Long','4',null,null,  '2021-06-27', 1, 0, 'nhanvien4', 'password'  );
+VALUES ('4','Đặng Phi Long','4',10000000,null,  '2021-06-27', 1, 0, 'nhanvien4', 'password','3', 'An Giang', '0917842560'  );
 INSERT INTO NhanVien 
-VALUES ('5','Lê Tuấn Linh','5',null,null,  '2021-06-27', 1, 1 , 'nhanvien5', 'password' );
+VALUES ('5','Lê Tuấn Linh','5',10000000,null,  '2021-06-27', 1, 1 , 'nhanvien5', 'password','2', 'Hà Nội', '0963687706' );
 INSERT INTO NhanVien 
-VALUES ('6','Nguyễn Huy Tú','5',null,null,  '2021-06-27', 1,1,'nhanvien6', 'password'  );
+VALUES ('6','Nguyễn Huy Tú','5',10000000,null,  '2021-06-27', 1,1,'nhanvien6', 'password','2', 'TP.HCM', '0278547563'  );
 
 
 INSERT INTO SanPham 
-VALUES ('1','Áo khoác nỉ có nón',300000, 350000,  '1', '1','2021-06-27', 0.1, '/images/thumb1.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
+VALUES ('1','Áo khoác nỉ có nón',300000, 350000,  '1', '1','2021-06-27', 0.1,'/images/hinh1.jpg', '/images/thumb1.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
 INSERT INTO SanPham 
-VALUES ('2','Áo khoác jean nữ',300000, 350000,  '2', '1','2021-06-27', 0.1, '/images/thumb2.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
+VALUES ('2','Áo khoác jean nữ',300000, 350000,  '2', '1','2021-06-27', 0.1, '/images/hinh2.jpg', '/images/thumb2.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
 INSERT INTO SanPham 
-VALUES ('3','Quần boggy ống rộng',300000, 350000,  '3', '3','2021-06-27', 0.1, '/images/thumb3.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
+VALUES ('3','Quần boggy ống rộng',300000, 350000,  '3', '3','2021-06-27', 0.1,'/images/hinh3.jpg', '/images/thumb3.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
 INSERT INTO SanPham 
-VALUES ('4','Áo thun sọc ngang',300000, 350000,  '4', '4','2021-06-27', 0.1, '/images/thumb4.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
+VALUES ('4','Áo thun sọc ngang',300000, 350000,  '4', '4','2021-06-27', 0.1,'/images/hinh4.jpg', '/images/thumb4.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
 INSERT INTO SanPham 
-VALUES ('5','Đầm công sở',300000, 350000,  '5', '3','2021-06-27', 0.1, '/images/thumb5.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
+VALUES ('5','Đầm công sở',300000, 350000,  '5', '3','2021-06-27', 0.1,'/images/hinh5.jpg', '/images/thumb5.png', 'Áo khoác Jean nữ là một trong những kiểu áo khoác không thể thiếu của phái đẹp.Nó luôn mang đến sự trẻ trung, năng động và đặc biệt là rất cá tính. Dù trong tủ đồ có nhiều kiểu áo khoác như thế nào thì áo Jean vẫn chiếm một vị trí vô cùng quan trọng. Dù ra đời khá lâu nhưng áo khoác Jeans chưa bao giờ tỏ ra “lỗi mốt”. Nàng đã quá nhàm chán với những mẫu áo khoác quen thuộc như Jacket, Cardigan? Nếu muốn thay đổi style hằng ngày của mình thì item đậm chất đường phố này là một gợi ý hay dành cho bạn đấy. Biết đâu bạn sẽ thích phong cách này thì sao?' );
 
 
 INSERT INTO Kho 
@@ -458,3 +462,12 @@ VALUES ('1','1',2 );
 INSERT INTO ChiTietXuatKho 
 VALUES ('1','2',1);
 
+select nv.MaNhanVien id, nv.TenNV name, nv.DiaChi adress, lnv.TenLoaiNV position, nv.SDT telephone, bp.TenBP department, nv.TienLuong salary
+        from NhanVien nv join LoaiNhanVien lnv on nv.MaLoaiNV = lnv.MaLoaiNV
+        join BoPhan bp on nv.MaBoPhan = bp.MaBoPhan
+        where nv.MaLoaiNV != '1';
+        
+select sp.MaSanPham  ID, sp.TenSP name, lsp.TenLoaiSP  category, sp.AnhThumbnail thumbnail, sp.AnhDaiDien image, ctk.SoLuong amount, ctk.TrangThai status, sp.GiaBan price, sp.MoTa des
+        from SanPham sp join LoaiSanPham lsp on sp.MaLoaiSP = lsp.MaLoaiSP 
+        join ChiTietKho ctk on sp.MaSanPham = ctk.MaSP  
+        where ctk.MaKho = '1'

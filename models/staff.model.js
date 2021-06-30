@@ -8,7 +8,8 @@ module.exports = {
     getAllStaff() {
         const sql = `select nv.MaNhanVien id, nv.TenNV name, nv.DiaChi adress, lnv.TenLoaiNV position, nv.SDT telephone, bp.TenBP department, nv.TienLuong salary
         from ${tabel_nhanvien} nv join ${table_LoaiNhanVien} lnv on nv.MaLoaiNV = lnv.MaLoaiNV
-        join ${table_BoPhan} bp on nv.MaBoPhan = bp.MaBoPhan`;
+        join ${table_BoPhan} bp on nv.MaBoPhan = bp.MaBoPhan
+        where nv.MaLoaiNV!= '1'`;
         return db.load(sql);
     },
 
