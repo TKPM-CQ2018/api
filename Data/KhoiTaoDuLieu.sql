@@ -317,7 +317,7 @@ VALUES ('3','Nhân viên lễ tân ', 'Là người hỗ trợ khách hàng gi�
 INSERT INTO LoaiNhanVien
 VALUES ('4','Nhân viên bán hàng ', 'Là người tư vấn, hỗ trợ, thanh toán  ');
 INSERT INTO LoaiNhanVien
-VALUES ('5','Nhân viên quản lý cửa hàng ', 'Là người quản lý một chi nhánh trong chuỗi cửa hàng ');
+VALUES ('5','Nhân viên quản lý', 'Là người quản lý một chi nhánh trong chuỗi cửa hàng ');
 
 INSERT INTO BoPhan 
 VALUES ('1','Chủ cửa hàng', 'Chủ của cừa hàng',  '2021-06-27');
