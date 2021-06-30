@@ -10,10 +10,11 @@ var usersRouter = require("./routes/users");
 
 const staffAPIRouter = require("./routes/staffDataAPI");
 const productAPIRouter = require("./routes/productDataAPI");
+const testAPIRouter = require("./routes/testDataAPI");
 
 var app = express();
 
-console.log(require('dotenv').config());
+console.log(require("dotenv").config());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -30,6 +31,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/staffDataAPI", staffAPIRouter);
 app.use("/productDataAPI", productAPIRouter);
+app.use("/testAPI", testAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
