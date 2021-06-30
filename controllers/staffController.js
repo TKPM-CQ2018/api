@@ -1,5 +1,6 @@
-const staffModel = require("../models/staffModel");
+const staffModel = require("../models/staff.model");
 
-exports.detail = (req, res, next) => {
-  res.send(staffModel.list());
+exports.detail = async(req, res, next) => {
+    const listStaff = await staffModel.getAllStaff()
+    res.send(listStaff);
 };
