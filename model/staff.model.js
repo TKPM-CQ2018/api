@@ -1,10 +1,14 @@
 const db = require("../utils/db");
 
 tabel_nhanvien = "NhanVien"
+table_LoaiNhanVien = "LoaiNhanVien"
+table_BoPhan = "BoPhan"
 module.exports = {
     //get all staff
     getAllStaff() {
-        const sql = `select * from ${tabel_nhanvien}`;
+        const sql = `select nv.MaNhanVien id, nv.TenNV name, nv.DiaChi adress, lnv.TenLoaiNV position, nv.SDT telephone, bp.TenBP department, nv.TienLuong salary
+        from ${tabel_nhanvien} nv join ${table_LoaiNhanVien} lnv on nv.MaLoaiNV = lnv.MaLoaiNV
+        join ${table_BoPhan} bp on nv.MaBoPhan = bp.MaBoPhan`;
         return db.load(sql);
     },
 
