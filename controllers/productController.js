@@ -1,5 +1,7 @@
 const productModel = require("../models/productModel");
-
-exports.detail = (req, res, next) => {
-  res.send(productModel.list());
+const product = require("../model/product.model")
+exports.detail = async(req, res, next) => {
+    listProduct = await product.getAllProduct();
+    console.log(listProduct)
+    res.send(listProduct);
 };
