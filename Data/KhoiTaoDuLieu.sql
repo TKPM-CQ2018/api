@@ -181,7 +181,7 @@ create table ChiTietKho(
 	MaKho varchar(10) ,
     MaSP  varchar(10),
 	SoLuong int not null ,
-    TrangThai int not null,
+    TrangThai nvarchar(20),
     constraint  primary key (MaKho, MaSP)
 );
 
@@ -365,25 +365,25 @@ INSERT INTO Kho
 VALUES ('2','Kho thứ hai','Nguyễn Văn Cừ, Quận 5','6' );
 
 INSERT INTO ChiTietKho 
-VALUES ('1','1',20,1 );
+VALUES ('1','1',20, 'Còn' );
 INSERT INTO ChiTietKho 
-VALUES ('1','2',15,1 );
+VALUES ('1','2',15,'Còn' );
 INSERT INTO ChiTietKho 
-VALUES ('1','3',30,1 );
+VALUES ('1','3',30,'Còn' );
 INSERT INTO ChiTietKho 
-VALUES ('1','4',1,2);
+VALUES ('1','4',1,'Sắp hết');
 INSERT INTO ChiTietKho 
-VALUES ('1','5',0,3 );
+VALUES ('1','5',0,'Hết' );
 INSERT INTO ChiTietKho 
-VALUES ('2','1',20,1 );
+VALUES ('2','1',20,'Còn' );
 INSERT INTO ChiTietKho 
-VALUES ('2','2',15,1 );
+VALUES ('2','2',15,'Còn' );
 INSERT INTO ChiTietKho 
-VALUES ('2','3',30,1 );
+VALUES ('2','3',30,'Còn' );
 INSERT INTO ChiTietKho 
-VALUES ('2','4',1,2);
+VALUES ('2','4',1,'Sắp hết');
 INSERT INTO ChiTietKho 
-VALUES ('2','5',0,3 );
+VALUES ('2','5',0,'Hết' );
 
 
 INSERT INTO PhieuDatHang

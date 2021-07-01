@@ -12,6 +12,11 @@ module.exports = {
         where nv.MaLoaiNV!= '1'`;
         return db.load(sql);
     },
+    /*getAllStaff() {
+        const sql = `SELECT nv.MaNhanVien id, nv.TenNV name, nv.DiaChi adress, lnv.TenLoaiNV position, nv.SDT telephone, bp.TenBP department, nv.TienLuong salary FROM NhanVien nv JOIN LoaiNhanVien lnv ON nv.MaLoaiNV = lnv.MaLoaiNV JOIN BoPhan bp ON nv.MaBoPhan = bp.MaBoPhan WHERE nv.MaLoaiNV != '1'
+        `;
+        return db.load(sql);
+    },*/
 
     //kiem tra thong tin dang nhap
     findStaffByInfor(account, password) {

@@ -5,14 +5,20 @@ table_LoaiSanPham = "LoaiSanPham"
 table_ChiTietKho = "ChiTietKho"
 module.exports = {
     //lay toan bo danh sach san pham
-    getAllProduct() {
+    /*getAllProduct() {
         const sql = `select sp.MaSanPham  id, sp.TenSP name, lsp.TenLoaiSP  category, sp.AnhThumbnail thumbnail, sp.AnhDaiDien image, ctk.SoLuong amount, ctk.TrangThai status, sp.GiaBan price, sp.MoTa des
         from ${table_SanPham} sp join ${table_LoaiSanPham} lsp on sp.MaLoaiSP = lsp.MaLoaiSP 
         join ${table_ChiTietKho} ctk on sp.MaSanPham = ctk.MaSP  
         where ctk.MaKho = '1'`;
         return db.load(sql);
-    },
+    },*/
+    getAllProduct() {
+        const sql = `SELECT sp.MaSanPham  id, sp.TenSP name, lsp.TenLoaiSP  category, sp.AnhThumbnail thumbnail, sp.AnhDaiDien image, ctk.SoLuong amount, ctk.TrangThai status, sp.GiaBan price, sp.MoTa des FROM ${table_SanPham} sp JOIN ${table_LoaiSanPham} lsp ON sp.MaLoaiSP = lsp.MaLoaiSP 
+        JOIN ${table_ChiTietKho} ctk ON sp.MaSanPham = ctk.MaSP  
+        WHERE ctk.MaKho = '1'`;
+        return db.load(sql);
 
+    },
     // tim kiem san pham bang ma san pham
     findProductByID(ID) {
         const sql = `select * from ${table_SanPham} where MaSanPham = "${ID}" `;
