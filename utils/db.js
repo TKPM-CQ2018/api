@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const util = require("util");
+require("dotenv").config();
 
 /*const pool = mysql.createPool({
     host: "localhost",
@@ -11,29 +12,29 @@ const util = require("util");
 });*/
 
 const pool = mysql.createPool({
-    host: "sql6.freemysqlhosting.net",
-    port: "3306",
-    user: "sql6422363",
-    password: "CH9M7q8UuK",
-    database: "sql6422363",
-    connectionLimit: 50,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  connectionLimit: process.env.DB_CONNECT_LIMIT,
 });
 
 const poo_query = util.promisify(pool.query).bind(pool);
 
 module.exports = {
-    load: (sql) => {
-        return poo_query(sql);
-    },
-    add: (entity, tableName) => {
-        return poo_query(`insert into ${tableName} set ? `, entity);
-    },
+  load: (sql) => {
+    return poo_query(sql);
+  },
+  add: (entity, tableName) => {
+    return poo_query(`insert into ${tableName} set ? `, entity);
+  },
 
-    patch: (entity, condition, tblName) => {
-        return poo_query(`update ${tblName} set ? where ?`, [entity, condition]);
-    },
-    del: (condition, tblName) => {
-        const sql = `delete from ${tblName} where ?`;
-        return poo_query(sql, condition);
-    },
-}
+  patch: (entity, condition, tblName) => {
+    return poo_query(`update ${tblName} set ? where ?`, [entity, condition]);
+  },
+  del: (condition, tblName) => {
+    const sql = `delete from ${tblName} where ?`;
+    return poo_query(sql, condition);
+  },
+};
