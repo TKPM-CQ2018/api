@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/staffDataAPI", staffAPIRouter);
-app.use("/productDataAPI", productAPIRouter);
-app.use("/testAPI", testAPIRouter);
+app.use(process.env.API_STAFF, staffAPIRouter);
+app.use(process.env.API_PRODUCT, productAPIRouter);
+//app.use("/testAPI", testAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
