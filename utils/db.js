@@ -13,9 +13,9 @@ const util = require("util");
 const pool = mysql.createPool({
     host: "sql6.freemysqlhosting.net",
     port: "3306",
-    user: "sql6422363",
-    password: "CH9M7q8UuK",
-    database: "sql6422363",
+    user: "sql6424891",
+    password: "QmT5nhBFUC",
+    database: "sql6424891",
     connectionLimit: 50,
 });
 
